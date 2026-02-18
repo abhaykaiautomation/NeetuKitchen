@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neetu’s Kitchen — Coming Soon</title>
+  <meta name="description" content="Neetu’s Kitchen — Indian Cuisine. Coming Soon." />
+
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(1100px, 100%);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    }
+
+    /* Banner image */
+    .banner {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;       /* keeps layout stable while loading */
+      object-fit: cover;
+      background: #222;
+    }
+
+    .content {
+      padding: 18px 18px 22px;
+      display: grid;
+      gap: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 30px);
+      letter-spacing: 0.2px;
+    }
+
+    p {
+      margin: 0;
+      opacity: 0.85;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 6px auto 0;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      background: rgba(255, 200, 0, 0.14);
+      border: 1px solid rgba(255, 200, 0, 0.35);
+    }
+
+    .footer {
+      opacity: 0.7;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card" aria-label="Neetu’s Kitchen Coming Soon">
+      <!-- Replace the src with your actual image path -->
+      <img
+        class="banner"
+        src="neetus-kitchen-coming-soon.png"
+        alt="Neetu’s Kitchen — Coming Soon (Indian Cuisine)"
+        loading="eager"
+      />
+
+      <div class="content">
+        <h1>Neetu’s Kitchen</h1>
+        <div class="badge">Indian Cuisine • Coming Soon</div>
+        <p>We’re cooking up something delicious. Check back soon!</p>
+        <div class="footer">© <span id="year"></span> Neetu’s Kitchen</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html
