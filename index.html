@@ -2,78 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Neetu’s Kitchen — Coming Soon</title>
   <meta name="description" content="Neetu’s Kitchen — Indian Cuisine. Coming Soon." />
+  <!-- Favicon  -->
+  <link rel="icon" type="image/png" href="NeetusKLogo3.png">
+  <link rel="shortcut icon" href="NeetusKLogo3.png" type="image/png">
+
+  <!-- Apple / iPhone Home Screen Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="NeetusKLogo3.png">
+
+  <!-- Different sizes for better browser support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="NeetusKLogo3.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="NeetusKLogo3.png">
 
   <style>
-    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: #0f0f0f;
       color: #fff;
+      background: radial-gradient(1200px 800px at 50% 20%, #222 0%, #0b0b0b 55%, #000 100%);
     }
 
+    /* Better than 100vh on mobile browsers */
     .wrap {
-      min-height: 100vh;
+      min-height: 100dvh;
       display: grid;
       place-items: center;
-      padding: 24px;
+      padding: clamp(14px, 4vw, 28px);
     }
 
     .card {
-      width: min(1100px, 100%);
+      width: min(980px, 100%);
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
+      border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 18px 50px rgba(0,0,0,0.55);
     }
 
-    /* Banner image */
-    .banner {
-      width: 100%;
-      display: block;
-      aspect-ratio: 16 / 9;       /* keeps layout stable while loading */
-      object-fit: cover;
-      background: #222;
-    }
+    /* Responsive image that never overflows */
+  .banner{
+  	width: 100%;
+  	height: 60vh;        /* limit height */
+  	object-fit: contain; /* no crop */
+  	background: #111;    /* bars background */
+  	display: block;
+	}
 
     .content {
-      padding: 18px 18px 22px;
-      display: grid;
-      gap: 10px;
+      padding: clamp(16px, 4vw, 26px);
       text-align: center;
+      display: grid;
+      gap: 12px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(20px, 3vw, 30px);
+      font-size: clamp(22px, 5vw, 36px);
+      line-height: 1.1;
       letter-spacing: 0.2px;
+    }
+
+    .badge {
+      width: fit-content;
+      margin: 0 auto;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: clamp(13px, 3.5vw, 16px);
+      background: rgba(255, 200, 0, 0.14);
+      border: 1px solid rgba(255, 200, 0, 0.35);
+      color: rgba(255,255,255,0.95);
+    }
+
+    .details {
+      display: grid;
+      gap: 6px;
+      margin-top: 2px;
+      font-size: clamp(13px, 3.4vw, 16px);
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    .details a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255,255,255,0.35);
+      width: fit-content;
+      margin: 0 auto;
+      padding-bottom: 2px;
     }
 
     p {
       margin: 0;
-      opacity: 0.85;
-      font-size: 15px;
+      font-size: clamp(14px, 3.6vw, 18px);
       line-height: 1.5;
-    }
-
-    .badge {
-      display: inline-block;
-      margin: 6px auto 0;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      background: rgba(255, 200, 0, 0.14);
-      border: 1px solid rgba(255, 200, 0, 0.35);
+      opacity: 0.88;
     }
 
     .footer {
+      margin-top: 2px;
+      font-size: clamp(12px, 3.2vw, 14px);
       opacity: 0.7;
-      font-size: 12px;
-      margin-top: 6px;
+    }
+
+    /* Optional: tighter layout on very small phones */
+    @media (max-width: 360px) {
+      .banner { max-height: 45vh; }
     }
   </style>
 </head>
@@ -81,20 +118,25 @@
 <body>
   <main class="wrap">
     <section class="card" aria-label="Neetu’s Kitchen Coming Soon">
-      <!-- Replace the src with your actual image path -->
-      <img
-        class="banner"
-        src="2C271224-651F-4D41-B259-B044C7B1CCCE.png"
-        alt="Neetu’s Kitchen — Coming Soon (Indian Cuisine)"
-        loading="eager"
-      />
+
+      <img class="banner"
+           src="2C271224-651F-4D41-B259-B044C7B1CCCE.png"
+           alt="Neetu’s Kitchen — Coming Soon"
+           loading="eager" />
 
       <div class="content">
         <h1>Neetu’s Kitchen</h1>
         <div class="badge">Indian Cuisine • Coming Soon</div>
+
+        <!-- ✅ Update these details -->
+        <div class="details">
+          <div>294 N Lafayette Street, South Lyon, MI 48178</div>         
+        </div>
+
         <p>We’re cooking up something delicious. Check back soon!</p>
         <div class="footer">© <span id="year"></span> Neetu’s Kitchen</div>
       </div>
+
     </section>
   </main>
 
@@ -102,4 +144,4 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-</html
+</html>
